@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Modern Bej Temamızın Ana Renkleri */
+  --background: #fdfcf5;
+  --foreground: #1c1917; /* stone-900 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  /* Next.js'in standart Arial fontunu sildik, font kontrolünü Tailwind'e (page.tsx) bıraktık */
+}
+
+/* 🌙 Mistik Ay ve Yıldız Arka Planı (Sayfaya Derinlik Katar) */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.12; /* Yarı saydamlık ayarı */
+  filter: blur(1.5px); /* Hafif modern bir yumuşatma */
+  z-index: -1;
+}
+
+/* Sol Alt: Hilal */
+body::before {
+  bottom: -150px;
+  left: -150px;
+  width: 600px;
+  height: 600px;
+  background-image: url('/moon-crescent.svg'); 
+}
+
+/* Sağ Üst: Dolunay ve Yıldızlar */
+body::after {
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background-image: url('/full-moon-stars.svg'); 
 }
