@@ -5,6 +5,7 @@ import Link from "next/link";
 import Script from "next/script";
 // Yeni eklediğimiz Mobil Uyumlu Navbar Bileşeni
 import Navbar from "@/components/Navbar";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -91,6 +92,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
+        <CookieConsent />
 
         {/* --- 🏛️ MODERN BEJ FOOTER --- */}
         <footer className="bg-[#faf9f0] text-stone-600 py-16 border-t border-[#eae4cd] mt-20 relative z-10">
